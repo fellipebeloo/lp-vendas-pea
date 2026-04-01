@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precificação é uma Arte — Aula Prática por R$ 37</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background-color: #000;
+      background-image: url('assets/Agrupar-1.jpg');
+      background-position: center center;
+      background-size: cover;
+      padding: 200px 100px;
+      display: flex;
+      align-items: center;
+    }
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+    }
+    .hero-content {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .hero-tag {
+      font-size: 14px;
+      font-weight: 300;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+    .hero-title {
+      font-size: 34px;
+      font-weight: 600;
+      line-height: 40px;
+      letter-spacing: -0.8px;
+      color: #fff;
+    }
+    .hero-subtitle {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 24px;
+      color: #BFBFBF;
+    }
+    .btn-wrap {
+      display: inline-flex;
+      border: 1px solid #FF0000;
+      border-radius: 1000px;
+      background-color: rgba(255,0,0,0.08);
+      margin-top: 4px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 22px 22px;
+      background-image: linear-gradient(130deg, #FF0303 0%, #FE7D05 100%);
+      border-radius: 100px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.88; }
+
+    /* ── PROBLEM ── */
+    .problem {
+      background-color: #000;
+      padding: 100px;
+      display: flex;
+      align-items: center;
+    }
+    .problem-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .big-words {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 64%;
+    }
+    .big-word {
+      font-size: 69px;
+      font-weight: 600;
+      line-height: 52px;
+      letter-spacing: -0.8px;
+      color: #fff;
+    }
+    .big-word.accent { color: #FF0303; text-align: right; }
+    .divider-line {
+      margin: 20px auto;
+      width: 2px;
+      height: 80px;
+      background: rgba(227,236,240,0.5);
+      border-radius: 2px;
+    }
+    .problem-bottom {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .problem-hook {
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 33px;
+      letter-spacing: -0.8px;
+      color: #fff;
+      text-align: center;
+    }
+    .problem-body {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 24px;
+      color: #BFBFBF;
+      text-align: center;
+      max-width: 640px;
+    }
+    .btn-center { display: flex; justify-content: center; width: 100%; }
+
+    /* ── LEARN ── */
+    .learn {
+      background-color: #000;
+      background-image: url('assets/Agrupar-4.jpg');
+      background-position: center center;
+      background-size: cover;
+      padding: 100px;
+    }
+    .learn-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+    }
+    .learn-left { width: 50%; }
+    .learn-right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 23px;
+    }
+    .learn-title {
+      font-size: 34px;
+      font-weight: 600;
+      line-height: 40px;
+      letter-spacing: -0.8px;
+      color: #fff;
+    }
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 200;
+      line-height: 24px;
+      color: #fff;
+    }
+    .checklist li svg {
+      fill: #FE7D05;
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+    .learn-note {
+      font-size: 14px;
+      font-weight: 300;
+      text-transform: uppercase;
+      line-height: 30px;
+      color: #BFBFBF;
+    }
+
+    /* ── BIO + PRICING ── */
+    .bio-pricing {
+      background-color: #fff;
+      padding: 100px;
+    }
+    .bio-pricing-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      gap: 40px;
+    }
+    .bio-col {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .bio-card {
+      background: #FDFDFD;
+      border: 1px solid #EAEAEA;
+      border-radius: 20px;
+      padding: 23px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .bio-tag {
+      font-size: 14px;
+      font-weight: 300;
+      text-transform: uppercase;
+      line-height: 30px;
+      color: #BFBFBF;
+    }
+    .bio-name {
+      font-size: 34px;
+      font-weight: 600;
+      line-height: 40px;
+      letter-spacing: -0.8px;
+      color: #858585;
+    }
+    .bio-text {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 23px;
+      color: #5A2222;
+      margin-top: 18px;
+    }
+    .bio-img {
+      margin-top: 22px;
+      border-radius: 11px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .pricing-col {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .pricing-card {
+      background-color: #202020;
+      background-image: url('assets/Prancheta-2-copiar.jpg');
+      background-position: center center;
+      background-size: cover;
+      border: 1px solid #EAEAEA;
+      border-radius: 20px;
+      padding: 41px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      height: 100%;
+    }
+    .pricing-tag {
+      font-size: 14px;
+      font-weight: 300;
+      text-transform: uppercase;
+      line-height: 30px;
+      color: #BFBFBF;
+      text-align: center;
+    }
+    .pricing-headline {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 40px;
+      letter-spacing: -0.8px;
+      color: #fff;
+      text-align: center;
+      margin-top: 0;
+    }
+    .pricing-price {
+      font-size: 63px;
+      font-weight: 400;
+      line-height: 83px;
+      letter-spacing: -0.8px;
+      color: #C8C8C8;
+      text-align: center;
+    }
+    .pricing-sub {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 52px;
+      letter-spacing: -0.8px;
+      color: #fff;
+      text-align: center;
+    }
+    .pricing-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 17px 0 21px;
+    }
+    .pricing-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 200;
+      line-height: 24px;
+      color: #fff;
+    }
+    .pricing-list li svg {
+      fill: #FE7D05;
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    /* ── TRUST BADGES ── */
+    .trust {
+      background-color: #000;
+      padding: 36px;
+      display: flex;
+    }
+    .trust-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .trust-card {
+      flex: 1;
+      min-width: 220px;
+      background: #202020;
+      border: 1px solid rgba(234,234,234,0.1);
+      border-radius: 20px;
+      padding: 23px;
+    }
+    .trust-title {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 40px;
+      letter-spacing: -0.8px;
+      color: #fff;
+    }
+    .trust-text {
+      font-size: 13px;
+      font-weight: 300;
+      text-transform: uppercase;
+      line-height: 21px;
+      color: #BFBFBF;
+      margin-top: 4px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background-image: linear-gradient(143deg, #FF0303 0%, #FE7D05 100%);
+      padding: 24px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 13px;
+      font-weight: 300;
+      text-transform: uppercase;
+      line-height: 21px;
+      color: #fff;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 767px) {
+      .hero {
+        background-image: url('assets/Prancheta-2.jpg');
+        padding: 50px 20px 300px;
+      }
+      .hero-inner { flex-direction: column; }
+      .hero-content { width: 100%; text-align: center; align-items: center; }
+      .hero-title { font-size: 26px; line-height: 1.3; }
+
+      .problem { padding: 40px 20px; }
+      .big-words { width: 100%; }
+      .big-word { font-size: 40px; }
+      .big-word.accent { font-size: 36px; }
+      .big-word.last { font-size: 44px; }
+
+      .learn {
+        background-image: url('assets/Prancheta-4-scaled.jpg');
+        padding: 300px 20px 50px;
+      }
+      .learn-inner { flex-direction: column; }
+      .learn-left { display: none; }
+      .learn-right { width: 100%; }
+      .learn-title { text-align: center; }
+      .learn-note { text-align: center; }
+      .btn-center { justify-content: center; }
+
+      .bio-pricing { padding: 40px 20px; }
+      .bio-pricing-inner { flex-direction: column; }
+      .bio-col, .pricing-col { width: 100%; }
+      .pricing-card {
+        background-image: url('assets/Prancheta-2-copiar.jpg');
+        padding: 40px 16px;
+      }
+      .pricing-price { font-size: 46px; }
+      .pricing-sub { font-size: 19px; line-height: 2; }
+      .pricing-headline { font-size: 26px; line-height: 1.1; }
+
+      .trust { padding: 20px; }
+      .trust-inner { flex-direction: column; }
+      .trust-card { margin-top: 4px; }
+
+      footer p { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <p class="hero-tag">| Precificação é uma Arte</p>
+      <h1 class="hero-title">Aprenda a precificar no mercado pet com foco em venda e lucro — não em achismo.</h1>
+      <p class="hero-subtitle">Uma aula prática por R$ 37 para donos de pet shop que já vendem, mas sabem que estão perdendo dinheiro na precificação.</p>
+      <div class="btn-wrap">
+        <a class="btn" href="#check">QUERO APRENDER A PRECIFICAR COM LUCRO</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="problem-inner">
+    <div class="big-words">
+      <p class="big-word">Você vende.</p>
+      <p class="big-word accent">Faz promoção.</p>
+      <p class="big-word last">Gira estoque.</p>
+    </div>
+    <div class="divider-line"></div>
+    <div class="problem-bottom">
+      <p class="problem-hook">Mas no fim do mês, o lucro não acompanha o esforço.</p>
+      <p class="problem-body">No mercado pet, precificar errado é o jeito mais rápido de trabalhar muito e ganhar pouco.<br><br>
+      Copiar concorrente, fazer "pague 1 leve 2" sem conta ou baixar preço para girar caixa destrói margem — mesmo quando o faturamento cresce.<br><br>
+      Essa aula é para quem quer parar de improvisar e começar a decidir com método.</p>
+      <div class="btn-center">
+        <div class="btn-wrap">
+          <a class="btn" href="#check">ACESSAR A AULA POR R$ 37</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU'LL LEARN -->
+<section class="learn">
+  <div class="learn-inner">
+    <div class="learn-left"></div>
+    <div class="learn-right">
+      <h2 class="learn-title">O que você vai aprender nesta aula:</h2>
+      <ul class="checklist">
+        <li>
+          <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+          Como precificar pensando em venda e lucro ao mesmo tempo
+        </li>
+        <li>
+          <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+          Como faturar até 18x mais usando estratégia — não desconto aleatório
+        </li>
+        <li>
+          <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+          Como criar promoções que vendem sem destruir margem
+        </li>
+        <li>
+          <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+          Como estruturar combos inteligentes no pet shop
+        </li>
+        <li>
+          <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+          Como usar atacarejo sem virar refém de preço
+        </li>
+        <li>
+          <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+          Quando usar pague 1 leve 2 / pague 2 leve 3 (e quando NÃO usar)
+        </li>
+        <li>
+          <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+          Como precificar por família de produtos
+        </li>
+        <li>
+          <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+          Diferença entre produto foco x produto fama
+        </li>
+        <li>
+          <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+          Como dobrar o lucro apenas ajustando a precificação
+        </li>
+      </ul>
+      <p class="learn-note">| Tudo explicado com linguagem simples, exemplos reais e foco em resultado.</p>
+      <div class="btn-wrap" style="align-self:flex-start;">
+        <a class="btn" href="#check">QUERO APRENDER A PRECIFICAR COM LUCRO</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIO + PRICING -->
+<section class="bio-pricing">
+  <div class="bio-pricing-inner">
+    <!-- Bio -->
+    <div class="bio-col">
+      <div class="bio-card">
+        <p class="bio-tag">Quem será seu professor:</p>
+        <h2 class="bio-name">Diego Braga</h2>
+        <p class="bio-text">
+          Diego atua há 26 anos no varejo, testando, errando e validando modelos de precificação que funcionam de verdade no dia a dia da loja — com foco especial no mercado pet.<br><br>
+          Aqui não tem teoria distante da realidade. Não tem planilha complicada.<br><br>
+          O conteúdo é prático, direto e aplicável, pensado para quem precisa vender mais sem sacrificar a margem e quer começar a ver resultado já nos próximos dias.
+        </p>
+        <img class="bio-img" src="assets/Prancheta-3-835x1024.jpg" alt="Diego Braga">
+      </div>
+    </div>
+    <!-- Pricing -->
+    <div class="pricing-col">
+      <div class="pricing-card" id="check">
+        <p class="pricing-tag">CONDIÇÃO EXCLUSIVA</p>
+        <p class="pricing-headline">Tenha acesso AGORA a aula por:</p>
+        <p class="pricing-price">8x R$ 5,48</p>
+        <p class="pricing-sub">ou R$37,00 à vista</p>
+        <ul class="pricing-list">
+          <li>
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+            Acesso imediato a um método de precificação validado na prática
+          </li>
+          <li>
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+            Conteúdo direto, sem teoria desnecessária
+          </li>
+          <li>
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+            Acesso à aula por 1 ano
+          </li>
+          <li>
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+            Decisões de preço mais seguras, com foco em venda e lucro
+          </li>
+        </ul>
+        <div class="btn-wrap" style="align-self:stretch;">
+          <a class="btn" href="https://pay.kiwify.com.br/DEsbDnk" style="width:100%; text-align:center;">COMECE AGORA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BADGES -->
+<section class="trust">
+  <div class="trust-inner">
+    <div class="trust-card">
+      <p class="trust-title">Pagamento seguro</p>
+      <p class="trust-text">Ambiente seguro. Seus dados estão protegidos e sua compra é 100% segura.</p>
+    </div>
+    <div class="trust-card">
+      <p class="trust-title">Garantia de 7 dias</p>
+      <p class="trust-text">Você poderá pedir a devolução de 100% do seu dinheiro dentro desse prazo.</p>
+    </div>
+    <div class="trust-card">
+      <p class="trust-title">Acesso imediato</p>
+      <p class="trust-text">Seu login e senha serão enviados ao seu e-mail logo após o pagamento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© Desenvolvido por Diego Braga &nbsp;|&nbsp; Política de privacidade &nbsp;|&nbsp; Aviso de cookies</p>
+</footer>
+
+</body>
+</html>
